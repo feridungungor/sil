@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-Post postFromJson(String str) => Post.fromJson(json.decode(str));
+PostModel postFromJson(String str) => PostModel.fromJson(json.decode(str));
 
-String postToJson(Post data) => json.encode(data.toJson());
+String postToJson(PostModel data) => json.encode(data.toJson());
 
-class Post {
-  Post({
+class PostModel {
+  PostModel({
     required this.userId,
     required this.id,
     required this.title,
@@ -17,7 +17,7 @@ class Post {
   String title;
   String body;
 
-  factory Post.fromJson(Map<String, dynamic> json) => Post(
+  factory PostModel.fromJson(Map<String, dynamic> json) => PostModel(
     userId: json["userId"],
     id: json["id"],
     title: json["title"],
