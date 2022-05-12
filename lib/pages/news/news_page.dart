@@ -10,15 +10,16 @@ class NewsPage extends GetView<NewsController> {
         title: Text("Posts"),
         centerTitle: true,
       ),
-      body: GetBuilder(builder: (NewsController _) => !_.isLoading
-          ? Center(
-        child: Text(
-          "veri geldi ${_.postsList.length}",
-          style: TextStyle(fontSize: 50),
-        ),
-
-      )
-          : CircularProgressIndicator()),
+      body: Obx(
+        () => !controller.isLoading.value
+            ? Center(
+                child: Text(
+                  "veri geldi ${controller.postsList.length}",
+                  style: TextStyle(fontSize: 50),
+                ),
+              )
+            : CircularProgressIndicator(),
+      ),
     );
   }
 }
